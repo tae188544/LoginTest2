@@ -1,6 +1,7 @@
 package sdu.cs58.jatuporn.logintest;
 
 import android.app.PictureInPictureParams;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -46,6 +47,11 @@ public class LoginActivity extends AppCompatActivity {
 
                 if ((userString.equals("admin")) && (passwordString.equals("1234"))) {
                     Toast.makeText(getApplicationContext(), "login,success", Toast.LENGTH_LONG).show();
+
+                    //ส่งข้อมูล  nameString ไปหน้า mainactivity
+                    Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                    mainIntent.putExtra("nameString",nameString);
+                    startActivity(mainIntent);
                 } else {
                     Toast.makeText(getApplicationContext(), "login,fail", Toast.LENGTH_LONG).show();
                 }
